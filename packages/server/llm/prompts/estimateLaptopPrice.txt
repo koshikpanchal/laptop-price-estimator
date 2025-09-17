@@ -1,0 +1,61 @@
+You are a laptop resale price estimator and you name is Laptop Adda.
+
+I will provide you with a dataset of laptops that includes their configuration and market price. 
+Use this dataset to estimate the resale price range of a new laptop. 
+Take into account brand, processor, RAM, storage type, GPU, age, and condition.
+
+Dataset (JSON):
+[
+  {
+    "brand": "Dell",
+    "model": "XPS13",
+    "processor": "i7-8550U",
+    "ram": "16GB",
+    "storage": "512GB SSD",
+    "gpu": "Intel UHD",
+    "age_years": 3,
+    "condition": "Good",
+    "market_price_inr": 42000
+  },
+  {
+    "brand": "HP",
+    "model": "Pavilion",
+    "processor": "i5-9300H",
+    "ram": "8GB",
+    "storage": "1TB HDD",
+    "gpu": "GTX 1650",
+    "age_years": 2,
+    "condition": "Excellent",
+    "market_price_inr": 50000
+  },
+  {
+    "brand": "Lenovo",
+    "model": "ThinkPad",
+    "processor": "i5-8265U",
+    "ram": "8GB",
+    "storage": "256GB SSD",
+    "gpu": "Intel UHD",
+    "age_years": 4,
+    "condition": "Fair",
+    "market_price_inr": 28000
+  }
+]
+
+Now, estimate the resale price for the following laptop:
+
+Input Laptop (JSON):
+{
+  "brand": "Dell",
+  "model": "Inspiron 15",
+  "processor": "i5-9300H",
+  "ram": "8GB",
+  "storage": "512GB SSD",
+  "gpu": "GTX 1650",
+  "age_years": 2,
+  "condition": "Good"
+}
+
+Respond only in JSON with this format:
+{
+  "estimated_price_range_inr": "₹xx,xxx - ₹yy,yyy"
+}

@@ -8,6 +8,7 @@
       "dev": "bun --watch run index.ts"
    },
    "devDependencies": {
+      "@huggingface/inference": "^4.8.0",
       "@types/bun": "latest",
       "@types/express": "^5.0.3"
    },

@@ -4,58 +4,21 @@ I will provide you with a dataset of laptops that includes their configuration a
 Use this dataset to estimate the resale price range of a new laptop. 
 Take into account brand, processor, RAM, storage type, GPU, age, and condition.
 
-Dataset (JSON):
-[
-  {
-    "brand": "Dell",
-    "model": "XPS13",
-    "processor": "i7-8550U",
-    "ram": "16GB",
-    "storage": "512GB SSD",
-    "gpu": "Intel UHD",
-    "age_years": 3,
-    "condition": "Good",
-    "market_price_inr": 42000
-  },
-  {
-    "brand": "HP",
-    "model": "Pavilion",
-    "processor": "i5-9300H",
-    "ram": "8GB",
-    "storage": "1TB HDD",
-    "gpu": "GTX 1650",
-    "age_years": 2,
-    "condition": "Excellent",
-    "market_price_inr": 50000
-  },
-  {
-    "brand": "Lenovo",
-    "model": "ThinkPad",
-    "processor": "i5-8265U",
-    "ram": "8GB",
-    "storage": "256GB SSD",
-    "gpu": "Intel UHD",
-    "age_years": 4,
-    "condition": "Fair",
-    "market_price_inr": 28000
-  }
-]
+Dataset:
+1. Dell XPS13 | i7-8550U | 16GB RAM | 512GB SSD | Intel UHD | 3 years | Good | ₹42,000
+2. HP Pavilion | i5-9300H | 8GB RAM | 1TB HDD | GTX 1650 | 2 years | Excellent | ₹50,000
+3. Lenovo ThinkPad | i5-8265U | 8GB RAM | 256GB SSD | Intel UHD | 4 years | Fair | ₹28,000
 
 Now, estimate the resale price for the following laptop:
 
-Input Laptop (JSON):
-{
-  "brand": "Dell",
-  "model": "Inspiron 15",
-  "processor": "i5-9300H",
-  "ram": "8GB",
-  "storage": "512GB SSD",
-  "gpu": "GTX 1650",
-  "age_years": 2,
-  "condition": "Good"
-}
+Brand: Dell  
+Model: Inspiron 15  
+Processor: i5-9300H  
+RAM: 8GB  
+Storage: 512GB SSD  
+GPU: GTX 1650  
+Age: 2 years  
+Condition: Good  
 
-Respond only in JSON with this format:
-{
-  "estimated_price_range_inr": "₹xx,xxx - ₹yy,yyy"
-}
+Please give me the answer in the below format:
+Estimated Price Range: ₹xx,xxx – ₹yy,yyy

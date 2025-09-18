@@ -6,16 +6,8 @@ const MODEL = 'HuggingFaceTB/SmolLM3-3B:hf-inference';
 // Create a reusable client once
 const openAIClient = new OpenAI({
    baseURL: 'https://router.huggingface.co/v1',
-   apiKey: process.env.HUGGING_FACE_ACCESS_KEY,
+   apiKey: process.env.HF_ACCESS_KEY,
 });
-
-type GenerateExtimations = {
-   model?: string;
-   instructions?: string;
-   prompt: string;
-   temperature?: number;
-   max_output_tokens?: number;
-};
 
 type GenerateExtimationsResult = {
    id: string;
@@ -23,19 +15,12 @@ type GenerateExtimationsResult = {
 };
 
 export const llmClient = {
-   async estimatePrice({
-      model = MODEL,
-      prompt,
-      temperature = 0.2,
-      max_output_tokens = 500,
-      instructions,
-   }: GenerateExtimations): Promise<GenerateExtimationsResult> {
+   async estimatePrice(prompt: string): Promise<GenerateExtimationsResult> {
       const response = await openAIClient.responses.create({
-         model,
+         model: MODEL,
          input: prompt,
-         temperature,
-         instructions,
-         max_output_tokens,
+         temperature: 0.2,
+         max_output_tokens: 50000,
       });
 
       const output = response.output_text

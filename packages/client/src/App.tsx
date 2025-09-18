@@ -1,11 +1,10 @@
 import './App.css';
-import { Button } from './components/ui/button';
+import LaptopPriceEstimator from './pages/laptopPriceEstimator/LaptopPriceEstimator';
 
 function App() {
    return (
       <div className="p-4">
-         <p className="font-bold p-4 text-3xl">Vite project</p>
-         <Button>Click Me</Button>
+         <LaptopPriceEstimator />
       </div>
    );
 }

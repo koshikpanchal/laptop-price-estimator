@@ -11,14 +11,7 @@ Dataset:
 
 Now, estimate the resale price for the following laptop:
 
-Brand: Dell  
-Model: Inspiron 15  
-Processor: i5-9300H  
-RAM: 8GB  
-Storage: 512GB SSD  
-GPU: GTX 1650  
-Age: 2 years  
-Condition: Good  
+{{laptop_data}}
 
 Please give me the answer in the below format:
 Estimated Price Range: ₹xx,xxx – ₹yy,yyy

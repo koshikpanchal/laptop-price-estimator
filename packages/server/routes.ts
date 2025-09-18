@@ -17,37 +17,27 @@ const openAIClient = new OpenAI({
    apiKey: process.env.HF_ACCESS_KEY,
 });
 
-const infrenceClient = new InferenceClient(process.env.HF_ACCESS_KEY);
-
 router.post('/api/priceEstimator', async (req: Request, res: Response) => {
    try {
-      //    const { data } = req.body;
+      const { data } = req.body;
 
-      //   const response = await openAIClient.responses.create({
-      //      model: MODEL,
-      //      input: laptopPrompt,
-      //      temperature: 0.2,
-      //      max_output_tokens: 5000,
-      //   });
+      const prompt = laptopPrompt.replace(
+         '{{laptop_data}}',
+         JSON.stringify(data)
+      );
 
-      //   const output = response.output_text
-      //      .replace(/<think>[\s\S]*?<\/think>/g, '')
-      //      .trim();
-
-      //   res.json({ output });
-
-      const chatCompletion = await infrenceClient.chatCompletion({
-         provider: 'cerebras',
-         model: 'meta-llama/Llama-3.1-8B-Instruct',
-         messages: [
-            {
-               role: 'system',
-               content: laptopPrompt,
-            },
-         ],
+      const response = await openAIClient.responses.create({
+         model: MODEL,
+         input: prompt,
+         temperature: 0.2,
+         max_output_tokens: 50000,
       });
 
-      return chatCompletion.choices[0]?.message.content || '';
+      const output = response.output_text
+         .replace(/<think>[\s\S]*?<\/think>/g, '')
+         .trim();
+
+      res.json({ output });
    } catch (error) {
       console.error(error);
    }

@@ -51,7 +51,7 @@ const LaptopPriceEstimator = () => {
                         <Label>Condition</Label>
                         <Input
                            id="condition"
-                           placeholder="good, screen broken"
+                           placeholder="good, screen broken or minor scratches"
                            required
                         />
                      </div>

@@ -1,14 +1,11 @@
-import { Button } from '../../components/ui/button';
 import {
    Card,
    CardContent,
    CardDescription,
-   CardFooter,
    CardHeader,
    CardTitle,
 } from '../../components/ui/card';
-import { Input } from '../../components/ui/input';
-import { Label } from '../../components/ui/label';
+import LaptopForm from './LaptopForm';
 
 const LaptopPriceEstimator = () => {
    return (
@@ -21,48 +18,8 @@ const LaptopPriceEstimator = () => {
                </CardDescription>
             </CardHeader>
             <CardContent>
-               <form>
-                  <div className="flex flex-row gap-6">
-                     <div className="grid gap-2">
-                        <Label>Model</Label>
-                        <Input id="model" placeholder="Dell" required />
-                     </div>
-                     <div className="grid gap-2">
-                        <Label>Processor</Label>
-                        <Input id="processor" placeholder="i7-9300U" required />
-                     </div>
-                     <div className="grid gap-2">
-                        <Label>RAM</Label>
-                        <Input id="ram" placeholder="8GB" required />
-                     </div>
-                     <div className="grid gap-2">
-                        <Label>Storage</Label>
-                        <Input id="storage" placeholder="1TB SSD" required />
-                     </div>
-                     <div className="grid gap-2">
-                        <Label>GPU</Label>
-                        <Input id="gpu" placeholder="GTX 1650" required />
-                     </div>
-                     <div className="grid gap-2">
-                        <Label>Age</Label>
-                        <Input id="age" placeholder="2 years" required />
-                     </div>
-                     <div className="grid gap-2">
-                        <Label>Condition</Label>
-                        <Input
-                           id="condition"
-                           placeholder="good, screen broken or minor scratches"
-                           required
-                        />
-                     </div>
-                  </div>
-               </form>
+               <LaptopForm />
             </CardContent>
-            <CardFooter className="flex-col gap-2">
-               <Button type="submit" className="w-sm">
-                  Submit
-               </Button>
-            </CardFooter>
          </Card>
       </div>
    );

@@ -9,6 +9,10 @@ Dataset:
 2. HP Pavilion | i5-9300H | 8GB RAM | 1TB HDD | GTX 1650 | 2 years | Excellent | ₹50,000
 3. Lenovo ThinkPad | i5-8265U | 8GB RAM | 256GB SSD | Intel UHD | 4 years | Fair | ₹28,000
 
+Please make sure that if user didn't mentioned its its storage type, like SSD or HDD, then assume it is HDD.
+And similarly if GPU is not provided or its NA so that laptop don't have GPU.
+One more similar but important thing. User may or may not specify the generation of the laptop's processor, so in that case try to find out the base version of that respective laptop and processor and assume that is the processor type.
+
 Now, estimate the resale price for the following laptop:
 
 {{laptop_data}}

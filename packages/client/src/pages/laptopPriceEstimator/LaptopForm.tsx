@@ -15,6 +15,7 @@ const SPINNER_MESSAGES = [
 ];
 
 const LaptopForm = () => {
+   const [brand, setBrand] = useState('');
    const [model, setModel] = useState('');
    const [processor, setProcessor] = useState('');
    const [ram, setRam] = useState('');
@@ -27,13 +28,14 @@ const LaptopForm = () => {
    const [isLoading, setIsLoading] = useState(false);
 
    interface LaptopDetails {
-      model: string;
-      processor: string;
-      ram: string;
-      stroage: string;
-      gpu: string;
-      age: string;
-      condition: string;
+      Brand: string;
+      Model: string;
+      Processor: string;
+      RAM: string;
+      Stroage: string;
+      GPU: string;
+      Age: string;
+      Condition: string;
    }
 
    interface PriceEstimatorResponse {
@@ -48,13 +50,14 @@ const LaptopForm = () => {
          setIsLoading(true);
 
          const laptopDetails: LaptopDetails = {
-            model,
-            processor,
-            ram,
-            stroage,
-            gpu,
-            age,
-            condition,
+            Brand: brand,
+            Model: model,
+            Processor: processor,
+            RAM: ram,
+            Stroage: stroage,
+            GPU: gpu,
+            Age: age,
+            Condition: condition,
          };
 
          const { data } = await axios.post<PriceEstimatorResponse>(
@@ -76,14 +79,25 @@ const LaptopForm = () => {
             <div className="flex flex-col gap-4 items-start">
                <div className="flex flex-row gap-6 w-full">
                   <div className="grid gap-2 flex-1 min-w-[180px]">
+                     <Label>Brand</Label>
+                     <Input
+                        id="brand"
+                        placeholder="Dell"
+                        onChange={(e) => setBrand(e.target.value)}
+                        required
+                     />
+                  </div>
+                  <div className="grid gap-2 flex-1 min-w-[180px]">
                      <Label>Model</Label>
                      <Input
                         id="model"
-                        placeholder="Dell"
+                        placeholder="Inspiron 15R"
                         onChange={(e) => setModel(e.target.value)}
                         required
                      />
                   </div>
+               </div>
+               <div className="flex flex-row gap-6 w-full">
                   <div className="grid gap-2 flex-1 min-w-[180px]">
                      <Label>Processor</Label>
                      <Input
@@ -93,8 +107,6 @@ const LaptopForm = () => {
                         required
                      />
                   </div>
-               </div>
-               <div className="flex flex-row gap-6 w-full">
                   <div className="grid gap-2 flex-1 min-w-[180px]">
                      <Label>RAM</Label>
                      <Input
@@ -104,6 +116,8 @@ const LaptopForm = () => {
                         required
                      />
                   </div>
+               </div>
+               <div className="flex flex-row gap-6 w-full">
                   <div className="grid gap-2 flex-1 min-w-[180px]">
                      <Label>Storage</Label>
                      <Input
@@ -113,8 +127,6 @@ const LaptopForm = () => {
                         required
                      />
                   </div>
-               </div>
-               <div className="flex flex-row gap-6 w-full">
                   <div className="grid gap-2 flex-1 min-w-[180px]">
                      <Label>GPU</Label>
                      <Input
@@ -123,6 +135,8 @@ const LaptopForm = () => {
                         onChange={(e) => setGpu(e.target.value)}
                      />
                   </div>
+               </div>
+               <div className="flex flex-row gap-6 w-full">
                   <div className="grid gap-2 flex-1 min-w-[180px]">
                      <Label>Age</Label>
                      <Input
@@ -132,8 +146,6 @@ const LaptopForm = () => {
                         required
                      />
                   </div>
-               </div>
-               <div className="flex flex-row gap-6 w-full">
                   <div className="grid gap-2 flex-1 min-w-[180px]">
                      <Label>Condition</Label>
                      <Input

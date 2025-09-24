@@ -5,6 +5,6 @@ export const priceEstimatorService = {
    async getEstimatedPrice(laptopData: string) {
       const prompt = laptopPrompt.replace('{{laptop_data}}', laptopData);
 
-      return await llmClient.estimatePrice(prompt);
+      return await llmClient.estimatePriceByBart(prompt);
    },
 };

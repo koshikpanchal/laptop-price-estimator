@@ -6,8 +6,6 @@ export const priceEstimatorController = {
       try {
          const { data } = req.body;
 
-         console.log(data);
-
          if (!data) {
             res.status(400).json({ error: 'Please enter the data of laptop' });
          }

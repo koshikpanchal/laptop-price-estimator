@@ -39,9 +39,7 @@ const LaptopForm = () => {
    }
 
    interface PriceEstimatorResponse {
-      output: {
-         text: string;
-      };
+      output: { 'Estimated Price Range': string };
    }
 
    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -66,8 +64,7 @@ const LaptopForm = () => {
                data: laptopDetails,
             }
          );
-
-         setPriceRange(data.output.text);
+         setPriceRange(data.output['Estimated Price Range']);
          setIsLoading(false);
       } catch (error) {
          console.error(error);
@@ -166,7 +163,7 @@ const LaptopForm = () => {
          {isLoading && <LoadingSpinner messages={SPINNER_MESSAGES} />}
          {priceRange && (
             <div className="flex justify-center text-2xl text-blue-900">
-               <p>{priceRange}</p>
+               <p>Estimated price is {priceRange}</p>
             </div>
          )}
       </div>
